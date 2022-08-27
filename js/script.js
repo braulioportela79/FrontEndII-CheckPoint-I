@@ -12,11 +12,14 @@ const addRecipe = e => {
     };
 
     recipes.push(recipe);
+
     document.querySelector('form').reset();
+    
     const recipeContainer = document.querySelector('.recipes-container');
     const card = document.createElement('div');
     recipeContainer.appendChild(card);
     card.classList.add('recipe');
+
     recipes.forEach(e => {
 
         let recipeTitle = e.title
