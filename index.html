@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="./js/script.js" defer></script>
+    <script src="./js/script.js" defer type="module"></script>
     <link rel="stylesheet" href="./css/style.css" />
     <title>CheckPoint I</title>
   </head>
@@ -19,263 +19,107 @@
       <img alt="Banner Image" src="./image/cozinha.png" />
     </div>
     <main>
-      <div class="add-recipes">FORMULÁRIO</div>
-      
-        <div class="recipes-container">
-          <div class="recipe">
-            <div class="recipe-img">
-              <img src="./image/strawberry-waffles-1024x668.webp" alt="" />
+      <div class="add-recipes">
+        <form id="form">
+          <h2>Adicione sua Receita!</h2>
+          <div class="input-wrapper">
+            <div class="text-input-wrapper">
+              <label for="title"
+                >Titulo
+                <input type="text" name="title" id="recipe-title" />
+              </label>
+              <label for="image"
+                >Foto do Prato
+                <input type="link" name="image" id="recipe-image" />
+              </label>
             </div>
-            <div class="recipe-content">
-              <div class="content-header">
-                <div class="row-wrapper">
-                  <h2 class="recipe-title">Waffle de Morango</h2>
-                </div>
-                <ul class="recipe-details">
-                  <li class="recipe-details-item time">
-                    <ion-icon name="time-outline"></ion-icon>
-                    <span class="values">20</span>
-                    <span class="title">Minutos</span>
-                  </li>
-                  <li class="recipe-details-item ingredients">
-                    <ion-icon name="book-outline"></ion-icon>
-                    <span class="values">5</span>
-                    <span class="title">Ingredientes</span>
-                  </li>
-                  <li class="recipe-details-item servings">
-                    <ion-icon name="person-outline"></ion-icon>
-                    <span class="values">4-6</span>
-                    <span class="title">Porções</span>
-                  </li>
-                </ul>
-              </div>
-              <p class="recipe-description">
-                Uma deliciosa receita para celebrar Maio, o mês do Morango.
-                Festejar essa data com amigos e familiares vai ser uma doçura!!!
-              </p>
-              <div class="recipe-footer">
-                <a href="">Ver Receita</a>
-              </div>
+            <div class="number-input-wrapper">
+              <label for="time"
+                >Tempo de Preparo (Minutos)
+                <input type="number" name="time" id="cook-time" />
+              </label>
+              <label for="ingredients"
+                >Número de Ingredientes
+                <input
+                  type="number"
+                  name="ingredients"
+                  id="ingredients-number"
+                />
+              </label>
+              <label for="serving"
+                >Porções
+                <input type="number" name="serving" id="recipe-servings" />
+              </label>
             </div>
           </div>
-          <div class="recipe">
-            <div class="recipe-img">
-              <img src="./image/strawberry-waffles-1024x668.webp" alt="" />
-            </div>
-            <div class="recipe-content">
-              <div class="content-header">
-                <div class="row-wrapper">
-                  <h2 class="recipe-title">Waffle de Morango</h2>
-                </div>
-                <ul class="recipe-details">
-                  <li class="recipe-details-item time">
-                    <ion-icon name="time-outline"></ion-icon>
-                    <span class="values">20</span>
-                    <span class="title">Minutos</span>
-                  </li>
-                  <li class="recipe-details-item ingredients">
-                    <ion-icon name="book-outline"></ion-icon>
-                    <span class="values">5</span>
-                    <span class="title">Ingredientes</span>
-                  </li>
-                  <li class="recipe-details-item servings">
-                    <ion-icon name="person-outline"></ion-icon>
-                    <span class="values">4-6</span>
-                    <span class="title">Porções</span>
-                  </li>
-                </ul>
-              </div>
-              <p class="recipe-description">
-                Uma deliciosa receita para celebrar Maio, o mês do Morango.
-                Festejar essa data com amigos e familiares vai ser uma doçura!!!
-              </p>
-              <div class="recipe-footer">
-                <a href="">Ver Receita</a>
-              </div>
-            </div>
+          <script
+            type="text/javascript"
+            src="http://js.nicedit.com/nicEdit-latest.js"
+          ></script>
+          <script type="text/javascript">
+            bkLib.onDomLoaded(function () {
+              nicEditors.allTextAreas();
+            }); // convert all text areas to rich text editor on that page
+
+            bkLib.onDomLoaded(function () {
+              new nicEditor().panelInstance('area1');
+            });
+
+            bkLib.onDomLoaded(function () {
+              new nicEditor({ fullPanel: true }).panelInstance('area2');
+            });
+          </script>
+
+          <label for="description">Descrição</label>
+          <textarea
+            rows="5"
+            cols="6"
+            name="description"
+            id="recipe-description"
+          ></textarea>
+          <button id="send-recipe-btn" type="submit">Enviar Receita</button>
+        </form>
+      </div>
+      <div class="recipes-container"></div>
+        
+
+        <!--
+        <div class="recipe">
+          <div class="recipe-img">
+            <img src="" alt="" />
           </div>
-          <div class="recipe">
-            <div class="recipe-img">
-              <img src="./image/strawberry-waffles-1024x668.webp" alt="" />
+          <div class="recipe-content">
+            <div class="content-header">
+              <div class="row-wrapper">
+                <h2 class="recipe-title"></h2>
+              </div>
+              <ul class="recipe-details">
+                <li class="recipe-details-item time">
+                  <ion-icon name="time-outline"></ion-icon>
+                  <span class="values"></span>
+                  <span class="title">Minutos</span>
+                </li>
+                <li class="recipe-details-item ingredients">
+                  <ion-icon name="book-outline"></ion-icon>
+                  <span class="values"></span>
+                  <span class="title">Ingredientes</span>
+                </li>
+                <li class="recipe-details-item servings">
+                  <ion-icon name="person-outline"></ion-icon>
+                  <span class="values"></span>
+                  <span class="title">Porções</span>
+                </li>
+              </ul>
             </div>
-            <div class="recipe-content">
-              <div class="content-header">
-                <div class="row-wrapper">
-                  <h2 class="recipe-title">Waffle de Morango</h2>
-                </div>
-                <ul class="recipe-details">
-                  <li class="recipe-details-item time">
-                    <ion-icon name="time-outline"></ion-icon>
-                    <span class="values">20</span>
-                    <span class="title">Minutos</span>
-                  </li>
-                  <li class="recipe-details-item ingredients">
-                    <ion-icon name="book-outline"></ion-icon>
-                    <span class="values">5</span>
-                    <span class="title">Ingredientes</span>
-                  </li>
-                  <li class="recipe-details-item servings">
-                    <ion-icon name="person-outline"></ion-icon>
-                    <span class="values">4-6</span>
-                    <span class="title">Porções</span>
-                  </li>
-                </ul>
-              </div>
-              <p class="recipe-description">
-                Uma deliciosa receita para celebrar Maio, o mês do Morango.
-                Festejar essa data com amigos e familiares vai ser uma doçura!!!
-              </p>
-              <div class="recipe-footer">
-                <a href="">Ver Receita</a>
-              </div>
-            </div>
-          </div>
-          <div class="recipe">
-            <div class="recipe-img">
-              <img src="./image/strawberry-waffles-1024x668.webp" alt="" />
-            </div>
-            <div class="recipe-content">
-              <div class="content-header">
-                <div class="row-wrapper">
-                  <h2 class="recipe-title">Waffle de Morango</h2>
-                </div>
-                <ul class="recipe-details">
-                  <li class="recipe-details-item time">
-                    <ion-icon name="time-outline"></ion-icon>
-                    <span class="values">20</span>
-                    <span class="title">Minutos</span>
-                  </li>
-                  <li class="recipe-details-item ingredients">
-                    <ion-icon name="book-outline"></ion-icon>
-                    <span class="values">5</span>
-                    <span class="title">Ingredientes</span>
-                  </li>
-                  <li class="recipe-details-item servings">
-                    <ion-icon name="person-outline"></ion-icon>
-                    <span class="values">4-6</span>
-                    <span class="title">Porções</span>
-                  </li>
-                </ul>
-              </div>
-              <p class="recipe-description">
-                Uma deliciosa receita para celebrar Maio, o mês do Morango.
-                Festejar essa data com amigos e familiares vai ser uma doçura!!!
-              </p>
-              <div class="recipe-footer">
-                <a href="">Ver Receita</a>
-              </div>
-            </div>
-          </div>
-          <div class="recipe">
-            <div class="recipe-img">
-              <img src="./image/strawberry-waffles-1024x668.webp" alt="" />
-            </div>
-            <div class="recipe-content">
-              <div class="content-header">
-                <div class="row-wrapper">
-                  <h2 class="recipe-title">Waffle de Morango</h2>
-                </div>
-                <ul class="recipe-details">
-                  <li class="recipe-details-item time">
-                    <ion-icon name="time-outline"></ion-icon>
-                    <span class="values">20</span>
-                    <span class="title">Minutos</span>
-                  </li>
-                  <li class="recipe-details-item ingredients">
-                    <ion-icon name="book-outline"></ion-icon>
-                    <span class="values">5</span>
-                    <span class="title">Ingredientes</span>
-                  </li>
-                  <li class="recipe-details-item servings">
-                    <ion-icon name="person-outline"></ion-icon>
-                    <span class="values">4-6</span>
-                    <span class="title">Porções</span>
-                  </li>
-                </ul>
-              </div>
-              <p class="recipe-description">
-                Uma deliciosa receita para celebrar Maio, o mês do Morango.
-                Festejar essa data com amigos e familiares vai ser uma doçura!!!
-              </p>
-              <div class="recipe-footer">
-                <a href="">Ver Receita</a>
-              </div>
-            </div>
-          </div>
-          <div class="recipe">
-            <div class="recipe-img">
-              <img src="./image/strawberry-waffles-1024x668.webp" alt="" />
-            </div>
-            <div class="recipe-content">
-              <div class="content-header">
-                <div class="row-wrapper">
-                  <h2 class="recipe-title">Waffle de Morango</h2>
-                </div>
-                <ul class="recipe-details">
-                  <li class="recipe-details-item time">
-                    <ion-icon name="time-outline"></ion-icon>
-                    <span class="values">20</span>
-                    <span class="title">Minutos</span>
-                  </li>
-                  <li class="recipe-details-item ingredients">
-                    <ion-icon name="book-outline"></ion-icon>
-                    <span class="values">5</span>
-                    <span class="title">Ingredientes</span>
-                  </li>
-                  <li class="recipe-details-item servings">
-                    <ion-icon name="person-outline"></ion-icon>
-                    <span class="values">4-6</span>
-                    <span class="title">Porções</span>
-                  </li>
-                </ul>
-              </div>
-              <p class="recipe-description">
-                Uma deliciosa receita para celebrar Maio, o mês do Morango.
-                Festejar essa data com amigos e familiares vai ser uma doçura!!!
-              </p>
-              <div class="recipe-footer">
-                <a href="">Ver Receita</a>
-              </div>
-            </div>
-          </div>
-          <div class="recipe">
-            <div class="recipe-img">
-              <img src="./image/strawberry-waffles-1024x668.webp" alt="" />
-            </div>
-            <div class="recipe-content">
-              <div class="content-header">
-                <div class="row-wrapper">
-                  <h2 class="recipe-title">Waffle de Morango</h2>
-                </div>
-                <ul class="recipe-details">
-                  <li class="recipe-details-item time">
-                    <ion-icon name="time-outline"></ion-icon>
-                    <span class="values">20</span>
-                    <span class="title">Minutos</span>
-                  </li>
-                  <li class="recipe-details-item ingredients">
-                    <ion-icon name="book-outline"></ion-icon>
-                    <span class="values">5</span>
-                    <span class="title">Ingredientes</span>
-                  </li>
-                  <li class="recipe-details-item servings">
-                    <ion-icon name="person-outline"></ion-icon>
-                    <span class="values">4-6</span>
-                    <span class="title">Porções</span>
-                  </li>
-                </ul>
-              </div>
-              <p class="recipe-description">
-                Uma deliciosa receita para celebrar Maio, o mês do Morango.
-                Festejar essa data com amigos e familiares vai ser uma doçura!!!
-              </p>
-              <div class="recipe-footer">
-                <a href="">Ver Receita</a>
-              </div>
+            <p class="recipe-description"></p>
+            <div class="recipe-footer">
+              <a href="">Ver Receita</a>
             </div>
           </div>
         </div>
-      
+
+      -->
+      </div>
     </main>
     <footer>CheckPoint I - FrontEnd II</footer>
     <script
