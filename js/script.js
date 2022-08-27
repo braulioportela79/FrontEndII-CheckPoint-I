@@ -8,15 +8,16 @@ const addRecipe = (e) => {
         ingredients: document.getElementById('ingredients-number').value,
         servings: document.getElementById('recipe-servings').value,
         description: document.querySelector('.nicEdit-main').innerHTML
-
     };
+
     recipes.push(recipe);
     document.querySelector('form').reset();
     const recipeContainer = document.querySelector('.recipes-container');
     const card = document.createElement('div');
     recipeContainer.appendChild(card);
     card.classList.add('recipe');
-    recipes.forEach(e=>{
+    recipes.forEach(e => {
+        
         let recipeTitle = e.title
         let recipeImage = e.image
         let cookTime = e.cookTime;
