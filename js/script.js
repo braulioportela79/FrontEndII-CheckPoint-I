@@ -1,5 +1,6 @@
 let recipes = [];
-const addRecipe = (e) => {
+
+const addRecipe = e => {
     e.preventDefault();
     let recipe = {
         title: document.getElementById('recipe-title').value,
@@ -17,7 +18,7 @@ const addRecipe = (e) => {
     recipeContainer.appendChild(card);
     card.classList.add('recipe');
     recipes.forEach(e => {
-        
+
         let recipeTitle = e.title
         let recipeImage = e.image
         let cookTime = e.cookTime;
