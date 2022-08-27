@@ -57,56 +57,7 @@ const addRecipe = (e) => {
     </div>
   </div>
     `
-
-        // document.querySelector('.recipe-title').innerHTML += e.title
     })
-
 };
 
 document.getElementById('send-recipe-btn').addEventListener('click', addRecipe);
-
-// recipes.forEach(e => {
-    
-//     let recipeTitle = e.title
-//     const recipeContainer = document.querySelector('.recipes-container');
-//     const card = document.createElement('div');
-//     recipeContainer.appendChild(card);
-//     card.classList.add('recipe');
-    //     card.innerHTML = `
-    //     <div class="recipe-img">
-    //     <img src="" alt="" />
-    //   </div>
-//   <div class="recipe-content">
-//     <div class="content-header">
-//       <div class="row-wrapper">
-//         <h2 class="recipe-title">${recipeTitle}</h2>
-//       </div>
-//       <ul class="recipe-details">
-//         <li class="recipe-details-item time">
-//           <ion-icon name="time-outline"></ion-icon>
-//           <span class="values"></span>
-//           <span class="title">Minutos</span>
-//         </li>
-//         <li class="recipe-details-item ingredients">
-//           <ion-icon name="book-outline"></ion-icon>
-//           <span class="values"></span>
-//           <span class="title">Ingredientes</span>
-//         </li>
-//         <li class="recipe-details-item servings">
-//           <ion-icon name="person-outline"></ion-icon>
-//           <span class="values"></span>
-//           <span class="title">Porções</span>
-//         </li>
-//       </ul>
-//     </div>
-//     <p class="recipe-description"></p>
-//     <div class="recipe-footer">
-//       <a href="">Ver Receita</a>
-//     </div>
-//   </div>
-//     `
-// document.querySelector('.recipe-title').textContent = recipeTitle
-
-// })
-
-
