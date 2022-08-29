@@ -25,18 +25,18 @@
           <div class="input-wrapper">
             <div class="text-input-wrapper">
               <label for="title"
-                >Titulo
-                <input type="text" name="title" id="recipe-title" />
+                >Título
+                <input type="text" name="title" id="recipe-title" required />
               </label>
               <label for="image"
-                >Foto do Prato
-                <input type="link" name="image" id="recipe-image" />
+                >Foto (URL Válida)
+                <input type="url" name="image" id="recipe-image" required />
               </label>
             </div>
             <div class="number-input-wrapper">
               <label for="time"
                 >Tempo de Preparo (Minutos)
-                <input type="number" name="time" id="cook-time" />
+                <input type="number" name="time" id="cook-time" min="0" />
               </label>
               <label for="ingredients"
                 >Número de Ingredientes
@@ -44,11 +44,12 @@
                   type="number"
                   name="ingredients"
                   id="ingredients-number"
+                  min="0"
                 />
               </label>
               <label for="serving"
                 >Porções
-                <input type="number" name="serving" id="recipe-servings" />
+                <input type="number" name="serving" id="recipe-servings" min="0" />
               </label>
             </div>
           </div>
@@ -70,7 +71,7 @@
             });
           </script>
 
-          <label for="description">Descrição</label>
+          <label for="description">Modo de Preparo</label>
           <textarea
             rows="5"
             cols="6"

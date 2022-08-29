@@ -65,7 +65,7 @@ main {
 
 .recipes-container {
   background-color: #d6d6d6;
-  padding: 100px 20px;
+  padding: 0px 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -180,7 +180,7 @@ footer {
   margin: 0;
   padding: 10px 0px 5px 0px;
   width: 100%;
-  /* position: absolute; */
+  position: absolute;
   border-bottom: 3px solid #78b749;
   background: #660000;
   color: #ffffff;
@@ -306,6 +306,10 @@ textarea {
 
   #header-wrapper {
     padding-left: 10px;
+    width: auto;
+  }
+  header {
+    margin-bottom: 20px;
   }
 
   header h1 {
@@ -316,7 +320,7 @@ textarea {
     font-size: 80%;
     padding-top: 10px;
   }
-  /* footer {
+  footer {
     position: relative;
-  } */
+  }
 }
