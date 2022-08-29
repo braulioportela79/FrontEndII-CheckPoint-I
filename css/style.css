@@ -180,12 +180,12 @@ footer {
   margin: 0;
   padding: 10px 0px 5px 0px;
   width: 100%;
-  position: absolute;
+  /* position: absolute; */
   border-bottom: 3px solid #78b749;
   background: #660000;
   color: #ffffff;
-  left: 0;
-  bottom: 0;
+  /* left: 0; */
+  /* bottom: 0; */
   text-align: center;
 }
 
