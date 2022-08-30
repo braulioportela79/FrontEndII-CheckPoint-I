@@ -78,5 +78,4 @@ export const loadRecipe = () => {
             loadRecipe();
         });
     });
-    console.log(recipes)
 };
