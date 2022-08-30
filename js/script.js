@@ -1,38 +1,37 @@
 let recipes = [];
 
+const qs = e => document.querySelector(e);
+const qsa = e => document.querySelectorAll(e);
+
+let clearTextArea = () => {
+  qs('.nicEdit-main').innerHTML = '';
+};
+
 const addRecipe = e => {
 
+  e.preventDefault();
+
   let recipe = {
-    id: new Date(),
-    title: document.getElementById('recipe-title').value,
-    image: document.getElementById('recipe-image').value,
-    cookTime: document.getElementById('cook-time').value,
-    ingredients: document.getElementById('ingredients-number').value,
-    servings: document.getElementById('recipe-servings').value,
-    description: document.querySelector('.nicEdit-main').innerHTML
+    title: qs('#recipe-title').value,
+    image: qs('#recipe-image').value,
+    cookTime: qs('#cook-time').value,
+    ingredients: qs('#ingredients-number').value,
+    servings: qs('#recipe-servings').value,
+    description: qs('.nicEdit-main').innerHTML
   };
 
+  recipes.push(recipe);
 
-
-  const form = document.getElementById('form');
-
+  const form = qs('#form');
   const isFormValid = form.checkValidity();
-
   if (!isFormValid) {
     form.reportValidity();
   } else {
-
-    recipes.push(recipe);
-
     form.checkValidity();
     form.reset();
-
-    e.preventDefault();
-
     clearTextArea();
-
-    const footer = document.querySelector('footer');
-    const recipeContainer = document.querySelector('.recipes-container');
+    const footer = qs('footer');
+    const recipeContainer = qs('.recipes-container');
     const card = document.createElement('div');
 
     recipeContainer.appendChild(card);
@@ -43,22 +42,33 @@ const addRecipe = e => {
       recipeContainer.style.padding = '100px 20px';
     }
 
-    recipes.forEach(e => {
+    loadRecipe();
+  };
+};
 
-      let recipeIndex = e.id;
-      let recipeTitle = e.title;
-      let recipeImage = e.image;
-      let cookTime = e.cookTime;
-      let ingredients = e.ingredients;
-      let servings = e.servings;
-      let description = e.description;
+qs('#send-recipe-btn').addEventListener('click', addRecipe);
 
-      card.innerHTML = `
-      <div class="recipe-img">
-        <img src="${recipeImage}" alt="" />
-      </div>
-      <div class="recipe-content">
-      <div class="content-header">
+let loadRecipe = () => {
+
+  let recipesContainer = qs('.recipes-container');
+  recipesContainer.innerHTML = '';
+
+  recipes.forEach(e => {
+
+    let recipeTitle = e.title;
+    let recipeImage = e.image;
+    let cookTime = e.cookTime;
+    let ingredients = e.ingredients;
+    let servings = e.servings;
+    let description = e.description;
+
+    let recipeCard = `
+    <div class="recipe">
+    <div class="recipe-img">
+    <img src="${recipeImage}" alt="" />
+    </div>
+    <div class="recipe-content">
+    <div class="content-header">
       <div class="row-wrapper">
       <h2 class="recipe-title">${recipeTitle}</h2>
       </div>
@@ -81,60 +91,34 @@ const addRecipe = e => {
       </ul>
       </div>
       <p class="recipe-description">${description}</p>
-      
       </div>
       <div class="recipe-footer">
       <button id="deleteBtn">Remover Receita</button>
       </div>
+      </div>
       `
-    })
-    // const deleteBtn = document.querySelectorAll('#deleteBtn');
+    recipesContainer.innerHTML += recipeCard;
 
-    // deleteBtn.forEach(btn => {
-    //   btn.addEventListener('click', () => {
-
-    //     let index = recipes.indexOf(recipe.id)
-
-    //     console.log(index)
-    //     // console.log(recipe.id)
-    //     // console.log(recipes.indexOf(index, 1))
-
-
-    //     // console.log(recipes.splice(index, 1))
-
-    //     // console.log(index)
-    //     // console.log(e)
-    //     // console.log(index)
-    //     // console.log(btn)
-    //   })
-
-    //   // render()
-    // });
-
-    // function deleteRecipe(id) {
-    //   let index = recipes.findIndex(e => e.id == id);
-    //   recipes.splice(index, 1);
-    //   render();
-    // }
-
-    const imgURL = document.querySelectorAll('.recipe-img img');
+    const imgURL = qsa('.recipe-img img');
 
     imgURL.forEach(el => {
       var url = el.getAttribute('src');
       const http = new XMLHttpRequest();
       http.open('GET', url);
       http.onerror = (e) => {
-        if (e.type === 'error') {
+        if (e.type === 'error' || http.status == 404) {
           el.setAttribute('src', './image/default-recipe-img.jpg')
         }
       };
       http.send();
     });
-  };
-}
+  });
 
-let clearTextArea = () => {
-  document.querySelector('.nicEdit-main').innerHTML = '';
+  const deleteBtn = qsa('#deleteBtn');
+  deleteBtn.forEach((btn, i) => {
+    btn.addEventListener('click', () => {
+      recipes.splice(i, 1);
+      loadRecipe();
+    });
+  });
 };
-
-document.getElementById('send-recipe-btn').addEventListener('click', addRecipe);
