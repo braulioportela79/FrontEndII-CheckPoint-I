@@ -43,8 +43,6 @@ export const addRecipe = e => {
             recipeContainer.style.padding = '100px 20px';
         };
 
-        console.log(recipes)
-
         loadRecipe();
     };
 };
