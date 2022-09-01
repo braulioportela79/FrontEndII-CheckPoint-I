@@ -20,7 +20,6 @@ export const addRecipe = () => {
     };
 
     recipes.push(recipe);
-    console.log(recipes)
     const form = qs('#form');
     const isFormValid = form.checkValidity();
     if (!isFormValid) {
@@ -40,7 +39,6 @@ export const addRecipe = () => {
             footer.style.position = 'relative';
             recipeContainer.style.padding = '100px 20px';
         };
-
         loadRecipe();
     };
     loadRecipe();
