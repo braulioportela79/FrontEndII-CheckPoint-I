@@ -6,6 +6,7 @@
   --bodyFont: 'Work Sans', sans-serif;
   --textColor: #323232;
 }
+
 body {
   margin: 0;
   padding: 0;
@@ -137,7 +138,6 @@ ion-icon {
 
 .values {
   color: #709328;
-  /* margin-left: 0.35em; */
   vertical-align: super;
   font-size: 24px;
   font-weight: 600;
@@ -183,28 +183,21 @@ footer {
   margin: 0;
   padding: 10px 0px 5px 0px;
   width: 100%;
-  /* position: absolute; */
   border-bottom: 3px solid #78b749;
   background: #660000;
   color: #ffffff;
-  /* left: 0;
-  bottom: 0; */
   text-align: center;
 }
 
 .add-recipes {
   position: relative;
-  /* width: 40%; */
-  /* margin-left: 30%; */
   height: auto;
-  /* border-radius: 10px; */
   overflow: hidden;
   background-color: rgba(255, 255, 255, 0.4);
 }
 
 #form,
 h2 {
-  /* font-family: 'Cookie', cursive; */
   font-size: 1.5em;
   display: flex;
   justify-content: center;
@@ -223,12 +216,10 @@ h2 {
 .text-input-wrapper {
   display: flex;
   flex-direction: row;
-
   justify-content: center;
   gap: 40px;
   margin-bottom: 20px;
   flex-wrap: wrap;
-  /* width: 95%; */
 }
 
 .text-input-wrapper input {
@@ -288,7 +279,6 @@ textarea {
 
 #send-recipe-btn {
   background: rgba(120, 183, 73, 0.5);
-  /* border-radius: 10px; */
   color: black;
   font-size: 14px;
   cursor: pointer;
