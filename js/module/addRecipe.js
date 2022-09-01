@@ -20,26 +20,21 @@ export const addRecipe = () => {
     };
 
     recipes.push(recipe);
+
     const form = qs('#form');
-    const isFormValid = form.checkValidity();
-    if (!isFormValid) {
-        form.reportValidity();
-    } else {
-        form.checkValidity();
-        form.reset();
-        clearTextArea();
-        const footer = qs('footer');
-        const recipeContainer = qs('.recipes-container');
-        const card = document.createElement('div');
+    form.reset();
+    clearTextArea();
 
-        recipeContainer.appendChild(card);
-        card.classList.add('recipe');
+    const footer = qs('footer');
+    const recipeContainer = qs('.recipes-container');
+    const card = document.createElement('div');
 
-        if (recipes.length > 0) {
-            footer.style.position = 'relative';
-            recipeContainer.style.padding = '100px 20px';
-        };
-        loadRecipe();
+    recipeContainer.appendChild(card);
+    card.classList.add('recipe');
+
+    if (recipes.length > 0) {
+        footer.style.position = 'relative';
+        recipeContainer.style.padding = '100px 20px';
     };
     loadRecipe();
 };
