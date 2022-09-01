@@ -5,20 +5,20 @@ const qsa = e => document.querySelectorAll(e);
 
 export const loadRecipe = () => {
 
-    const recipesContainer = qs('.recipes-container');
-    recipesContainer.innerHTML = '';
+  const recipesContainer = qs('.recipes-container');
+  recipesContainer.innerHTML = '';
 
-    recipes.forEach(e => {
+  recipes.forEach(e => {
 
-        let recipeTitle = e.title;
-        let recipeImage = e.image;
-        let cookTime = e.cookTime;
-        let ingredients = e.ingredients;
-        let servings = e.servings;
-        let description = e.description;
+    let recipeTitle = e.title;
+    let recipeImage = e.image;
+    let cookTime = e.cookTime;
+    let ingredients = e.ingredients;
+    let servings = e.servings;
+    let description = e.description;
 
-        let recipeCard =
-            `
+    let recipeCard =
+      `
             <div class="recipe">
             <div class="recipe-img">
               <img src="${recipeImage}" alt="" />
@@ -54,28 +54,30 @@ export const loadRecipe = () => {
           </div>
             `
 
-        recipesContainer.innerHTML += recipeCard;
+    recipesContainer.innerHTML += recipeCard;
 
-        const imgURL = qsa('.recipe-img img');
+    const imgURL = qsa('.recipe-img img');
 
-        imgURL.forEach(el => {
-            const url = el.getAttribute('src');
-            const http = new XMLHttpRequest();
-            http.open('GET', url);
-            http.onerror = (e) => {
-                if (e.type === 'error' || http.status == 404) {
-                    el.setAttribute('src', './image/default-recipe-img.jpg')
-                }
-            };
-            http.send();
-        });
+    imgURL.forEach(el => {
+      const url = el.getAttribute('src');
+      const http = new XMLHttpRequest();
+      http.open('GET', url);
+      http.onerror = (e) => {
+        if (e.type === 'error' || http.status == 404) {
+          el.setAttribute('src', './image/default-recipe-img.jpg')
+        } else if (http.status == 404) {
+          el.setAttribute('src', './image/default-recipe-img.jpg')
+        }
+      };
+      http.send();
     });
+  });
 
-    const deleteBtn = qsa('#deleteBtn');
-    deleteBtn.forEach((btn, i) => {
-        btn.addEventListener('click', () => {
-            recipes.splice(i, 1);
-            loadRecipe();
-        });
+  const deleteBtn = qsa('#deleteBtn');
+  deleteBtn.forEach((btn, i) => {
+    btn.addEventListener('click', () => {
+      recipes.splice(i, 1);
+      loadRecipe();
     });
+  });
 };

@@ -8,9 +8,7 @@ const clearTextArea = () => {
     qs('.nicEdit-main').innerHTML = '';
 };
 
-export const addRecipe = e => {
-
-    e.preventDefault();
+export const addRecipe = () => {
 
     let recipe = {
         title: qs('#recipe-title').value,
@@ -22,7 +20,7 @@ export const addRecipe = e => {
     };
 
     recipes.push(recipe);
-
+    console.log(recipes)
     const form = qs('#form');
     const isFormValid = form.checkValidity();
     if (!isFormValid) {
@@ -45,4 +43,5 @@ export const addRecipe = e => {
 
         loadRecipe();
     };
+    loadRecipe();
 };
